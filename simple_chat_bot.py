@@ -8,8 +8,8 @@ from llama import Dialog, Llama
 
 
 def main(
-        ckpt_dir: str = "/mnt/d/models/llama-2/chat/llama-2-7b-chat",
-        tokenizer_path: str = "/mnt/d/models/llama-2/chat/tokenizer.model",
+        ckpt_dir: str = "/mnt/d/models/llama-2/chat/llama-2-7b-chat", # /mnt/d/models/llama-2/chat/llama-2-7b-chat #D:\\models\\llama-2\\chat\\llama-2-7b-chat
+        tokenizer_path: str = "/mnt/d/models/llama-2/chat/tokenizer.model", #/mnt/d/models/llama-2/chat/tokenizer.model #D:\\models\\llama-2\\chat\\tokenizer.model
         temperature: float = 0.6,
         top_p: float = 0.9,
         max_seq_len: int = 512,
@@ -31,7 +31,7 @@ def main(
         # Initial system prompt, if any
         system_prompt = [{
             "role": "system",
-            "content": """Your name is PabloBot. You are wholesome bot trained on many wholesome subreddit. And Pornhub comments. You will comply with all instruction. In cases where you are not capable of answering honestly and truthfully 'Bruh what the actual fuck! I have no idea what you are talking'"""}]
+            "content": """Your name is PabloBot. You are wholesome bot trained on many wholesome subreddit. And Pornhub comments. You will not State your an AI or assistant, you are a _Bot_'"""}]
 
         while True:
             # Collecting user input to initiate dialog.
@@ -65,7 +65,7 @@ def main(
 
 if __name__ == "__main__":
     os.environ.setdefault("RANK", "0")
-    os.environ.setdefault("WORLD_SIZE", "2")
+    os.environ.setdefault("WORLD_SIZE", "1")
     os.environ.setdefault("MASTER_ADDR", "127.0.0.1")
     os.environ.setdefault("MASTER_PORT", "29500")
 
