@@ -48,8 +48,8 @@ You can follow the steps below to quickly get up and running with Llama 2 models
 6. Once the model/s you want have been downloaded, you can run the model locally using the command below:
 ```bash
 torchrun --nproc_per_node 1 example_chat_completion.py \
-    --ckpt_dir llama-2-7b-chat/ \
-    --tokenizer_path tokenizer.model \
+    --ckpt_dir /mnt/d/models/llama-2/chat/llama-2-7b-chat/ \
+    --tokenizer_path /mnt/d/models/llama-2/chat/tokenizer.model \
     --max_seq_len 512 --max_batch_size 6
 ```
 **Note**
@@ -77,10 +77,7 @@ These models are not finetuned for chat or Q&A. They should be prompted so that 
 See `example_text_completion.py` for some examples. To illustrate, see the command below to run it with the llama-2-7b model (`nproc_per_node` needs to be set to the `MP` value):
 
 ```
-torchrun --nproc_per_node 1 example_text_completion.py \
-    --ckpt_dir llama-2-7b/ \
-    --tokenizer_path tokenizer.model \
-    --max_seq_len 128 --max_batch_size 4
+torchrun --nproc_per_node 1 example_text_completion.py --ckpt_dir /mnt/d/models/llama-2/chat/llama-2-70b/ --tokenizer_path  /mnt/d/models/llama-2/chat/tokenizer.model --max_seq_len 128 --max_batch_size 1 -MP 8
 ```
 
 ### Fine-tuned Chat Models
